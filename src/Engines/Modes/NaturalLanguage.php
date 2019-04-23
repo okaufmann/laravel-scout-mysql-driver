@@ -12,7 +12,7 @@ class NaturalLanguage extends Mode
 
         $queryString .= $this->buildWheres($builder);
 
-        $indexFields = implode(',',  $this->modelService->setModel($builder->model)->getFullTextIndexFields());
+        $indexFields = implode(',', $this->modelService->setModel($builder->model)->getFullTextIndexFields());
 
         $queryString .= "MATCH($indexFields) AGAINST(? IN NATURAL LANGUAGE MODE";
 

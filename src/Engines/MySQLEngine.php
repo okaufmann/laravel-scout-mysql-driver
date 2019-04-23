@@ -66,13 +66,13 @@ class MySQLEngine extends Engine
         $model = $builder->model;
         $query = $model::whereRaw($whereRawString, $params);
 
-        if($builder->callback){
+        if ($builder->callback) {
             $query = call_user_func($builder->callback, $query, $this);
         }
 
         $result['count'] = $query->count();
 
-        if (property_exists($builder, 'orders') && !empty($builder->orders)) {
+        if (property_exists($builder, 'orders') && ! empty($builder->orders)) {
             foreach ($builder->orders as $order) {
                 $query->orderBy($order['column'], $order['direction']);
             }
@@ -137,10 +137,10 @@ class MySQLEngine extends Engine
      * Flush all of the model's records from the engine.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
-     * 
+     *
      * @return void
      */
-    public function flush($model) 
+    public function flush($model)
     {
     }
 

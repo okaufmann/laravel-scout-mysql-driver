@@ -51,7 +51,7 @@ class ModelService
             $sql = "SHOW FIELDS FROM $this->tablePrefixedName where Field = ?";
             $column = DB::connection($this->connectionName)->select($sql, [$searchableField]);
 
-            if (!isset($column[0])) {
+            if (! isset($column[0])) {
                 continue;
             }
 

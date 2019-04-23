@@ -3,7 +3,6 @@
 namespace Yab\MySQLScout\Engines\Modes;
 
 use Laravel\Scout\Builder;
-use Yab\MySQLScout\Services\ModelService;
 
 class Boolean extends Mode
 {
@@ -13,7 +12,7 @@ class Boolean extends Mode
 
         $queryString .= $this->buildWheres($builder);
 
-        $indexFields = implode(',',  $this->modelService->setModel($builder->model)->getFullTextIndexFields());
+        $indexFields = implode(',', $this->modelService->setModel($builder->model)->getFullTextIndexFields());
 
         $queryString .= "MATCH($indexFields) AGAINST(? IN BOOLEAN MODE)";
 

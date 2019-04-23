@@ -63,7 +63,7 @@
             }
             $i++;
         }
-        if (!$namespace_ok) {
+        if (! $namespace_ok) {
             return null;
         } else {
             return $namespace;
@@ -81,7 +81,7 @@
     {
         $php_code = file_get_contents($filePathName);
 
-        $classes = array();
+        $classes = [];
         $tokens = token_get_all($php_code);
         $count = count($tokens);
         for ($i = 2; $i < $count; $i++) {
@@ -89,7 +89,6 @@
                 && $tokens[$i - 1][0] == T_WHITESPACE
                 && $tokens[$i][0] == T_STRING
             ) {
-
                 $class_name = $tokens[$i][1];
                 $classes[] = $class_name;
             }

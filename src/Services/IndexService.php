@@ -68,7 +68,7 @@ class IndexService
     {
         $indexName = $this->modelService->indexName;
         $tableName = $this->modelService->tablePrefixedName;
-        $indexFields = implode(',', array_map(function($indexField) {
+        $indexFields = implode(',', array_map(function ($indexField) {
             return "`$indexField`";
         }, $this->modelService->getFullTextIndexFields()));
 
@@ -87,7 +87,7 @@ class IndexService
         $tableName = $this->modelService->tablePrefixedName;
         $indexName = $this->modelService->indexName;
 
-        return !empty(DB::connection($this->modelService->connectionName)->
+        return ! empty(DB::connection($this->modelService->connectionName)->
         select("SHOW INDEX FROM $tableName WHERE Key_name = ?", [$indexName]));
     }
 

@@ -64,7 +64,7 @@ class ManageIndexes extends Command
         $model = $this->argument('model');
         $drop = $this->option('drop');
 
-        if (!$model) {
+        if (! $model) {
             $modelDirectories = config('scout.mysql.model_directories');
             $searchableModels = $this->indexService->getAllSearchableModels($modelDirectories);
 

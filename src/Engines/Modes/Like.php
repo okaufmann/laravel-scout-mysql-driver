@@ -3,7 +3,6 @@
 namespace Yab\MySQLScout\Engines\Modes;
 
 use Laravel\Scout\Builder;
-use Yab\MySQLScout\Services\ModelService;
 
 class Like extends Mode
 {
